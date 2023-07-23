@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #main {
+        
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .left{
+           display: flex;
+           justify-content: center;     
+          }
+      .left form {
+        display: flex;
+        flex-direction: column;
+        width: 49%;
+        height: 337px;
+        align-items: center;
+        justify-content: space-evenly;
+        
+              }
+            
+              .right{
+           display: flex;
+           justify-content: center;     
+          }
+      .right form {
+        display: flex;
+        flex-direction: column;
+        width: 49%;
+        height: 337px;
+        align-items: center;
+        justify-content: space-evenly;
+
+         }
+         
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+    <div id="main">
+        
+       
+      <div class="left">
+         <form action="/AddDojo" method="POST" >
+            {%csrf_token %}
+      
+          <div>
+        <label for='name'  > Name : </label>
+        <input type="text" name="name">
+      </div>
+      <div>
+        <label for='city'  > City : </label>
+        <input type="text" name="city">
+      </div>
+      <div>
+        <label for='state'  > state : </label>
+        <input type="text" name="state">
+      </div>
+
+        <input type="submit" value="Add">
+        
+   
+
+
+        </form>
+        <center>
+      </div>
+
+      <div class="right">
+      <form action="/AddNinja" method="POST">
+        {%csrf_token %}
+
+        <label for='fname'  > First Name :  </label>
+        <input type="text" name="fname">
+        <label for='lname'  > Last name :  </label>
+        <input type="text" name="lname">
+        <select name="dojo_id">
+            {% for dojo in newDojo %}
+         <option value="{{dojo.id}}">{{dojo.name}}</option>
+        {% endfor %}
+
+        </select>
+
+        <input type="submit" value="Add">
+
+    </center>
+    </form>
+      </div>
+    </div>
+     <hr>
+<center>
+   <div>
+    {% for dojo in newDojo %}
+    <li>
+        <b>{{dojo.name}}</b>
+    </li>
+        <ul>
+            {% for ninja in dojo.ninjas.all %}
+            <li>
+                {{ninja.fname}} {{ninja.lname}}
+            </li>
+            {% endfor %}
+        </ul>
+{% endfor %}
+</ul>
+
+   </div>
+  </center>
+    
+  </body>
+</html>

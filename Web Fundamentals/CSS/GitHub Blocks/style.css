@@ -1,0 +1,46 @@
+body {
+    background-color: whitesmoke;
+}
+
+h1 {
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+    font-size: xx-large;
+    text-align: center;
+}
+
+#blue {
+    background-color: skyblue;
+    padding: 15px;
+    margin: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#pink {
+    background-color: pink;
+    padding: 15px;
+    margin: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#white {
+    background-color: aliceblue;
+    padding: 15px;
+    margin: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#ref
+{
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+    font-size: large;
+    text-align: center;
+}
+
+img {
+    height: 200px;
+}

@@ -1,0 +1,75 @@
+create db : my_first_db
+
+create collections : db.createCollection('students')
+
+add docment : 
+> db.students.insert({name:"Abdulrhman",home_state:"SA",luck_number:88,birthday:1998-8-21})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"SAAD",home_state:"SA",luck_number:1,birthday:2000-8-21})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"Fahad",home_state:"SA",luck_number:5,birthday:1997-8-21})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"Mohammed",home_state:"SA",luck_number:20,birthday:1997-8-21})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"saleh",home_state:"SA",luck_number:3,birthday:1995-4-22})
+WriteResult({ "nInserted" : 1 })
+
+
+Get all students whose lucky number is greater than 3: 
+> db.students.find({luck_number: {$gt: 5}})
+
+
+Get all students whose lucky number is less than or equal to 10 :
+
+ db.students.find({luck_number: {$gt:1 ,$lt:9 }})
+
+
+Get all students whose lucky number is between 1 and 9 (inclusive):
+db.students.find({ $and: [{lucky_number: {$gte:1}}, {lucky_numbers: {$lte:9}}]})
+
+
+dd a field to each student collection called 'interests' that is an ARRAY. It should contain the following entries: 'coding', 'brunch', 'MongoDB'. Do this in ONE operation:
+db.students.update({},{$set:{interests:["coding", "brunch", "MongoDB"]}},{multi:true})
+
+
+Add some unique interests for each particular student into each of their interest arrays:
+
+> db.students.update({_id: ObjectId("6307382a2a35854738a0fd09")}, {$push: {interests: 'Gaming'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({_id: ObjectId("6307380a2a35854738a0fd08")}, {$push: {interests: 'Coding'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({_id: ObjectId("630738482a35854738a0fd0a")}, {$push: {interests: 'Travel'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({_id: ObjectId("630738702a35854738a0fd0c")}, {$push: {interests: 'Sky diving'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({_id: ObjectId("6307385a2a35854738a0fd0b")}, {$push: {interests: 'Drwe'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+
+Add the interest 'taxes' into someone's interest array:
+db.students.update({name:"saleh"},{$push:{interests:"taxes"}})
+
+Remove the 'taxes' interest you just added
+db.students.update({name:"John"},{$pull:{interests:"taxes"}})
+
+
+Remove a student by name:
+db.students.remove({name:"saleh"})
+
+
+Remove a student whose lucky number is greater than 5 (JUST ONE):
+db.students.remove({luck_number:{$gt:5}},true)
+
+
+Add a field to each student collection called 'number_of_belts' and set it to 0:
+db.students.insert({},{$set:{number_of_belts:0}},{multi:true})
+
+
+Increment this field by 1 for all students in Washington (Seattle Dojo).
+Rename the 'number_of_belts' field to 'belts_earned'
+
+Remove the 'lucky_number' field.
+db.students.update({},{$unset:{lucky_number:""}},{multi:true})
+
+Add a 'updated_on' field, and set the value as the current date:
+db.students.update({},{$currentDate:{"updated_on":{$type:"date"}}},{multi:true})

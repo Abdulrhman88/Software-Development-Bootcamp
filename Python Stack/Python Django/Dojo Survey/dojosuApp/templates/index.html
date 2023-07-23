@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+.con
+{
+    border: 3px black solid;
+    width: 66%;
+    height: 700px;
+    margin: 0% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    
+}
+.row
+{
+    border: 3px black solid;
+width: 61%;
+height: 58px;
+display: flex;
+margin: 0% auto;
+  margin-top: 0%;
+margin-top: 1%;
+justify-content: space-between;
+}
+#input
+{
+    height: 30px;
+width: 55%;
+margin-top: 3%;
+}
+.AA
+{
+width: 99%;
+height: 190px;
+margin: 0% auto;
+display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 122px;
+
+}
+#up
+{
+width: 99%;
+height: 67px;
+}
+#do
+{
+    border: 3px black solid;
+    height: 180px;
+}
+.txtare
+{
+    width: 99%;
+    height: 100px;
+}
+  </style>
+    <title>Document</title>
+</head>
+<body>
+    <form action="/res" method="post">
+        {% csrf_token %}
+<div class="con">
+    <div class="row">
+        <h2>Your name :</h2> <input id="input" type="text" value="" name="name">
+    </div>
+    <div class="row" ><h2>Dojo Loction </h2> 
+
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="location">
+            <option selected>location</option>
+            <option value="riyadh">riyadh</option>
+            <option value="Jeddah">Jeddah</option>
+            <option value="Tabuk">Tabuk</option>
+          </select>
+          
+    
+    
+    </div>
+    <div class="row"> <h2>favorite Langue </h2> 
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="favorite">
+            <option selected>Open this select menu</option>
+            <option value="C#">C#</option>
+            <option value="python">python</option>
+            <option value="javacript">javacript</option>
+          </select>
+          
+    </div>
+    <div class="AA">
+        <div id="up"><h2>Comment (opthinal) : </h2></div>
+        <div id="do"> <textarea  class="txtare" name="comment" rows="3"></textarea></div>
+    </div>
+    <br>
+    <button type="submit" id="submit" class="btn border border-2 border-dark w-25 ms-auto mx-4">Submit</button>
+</form>
+</div>
+</body>
+</html>

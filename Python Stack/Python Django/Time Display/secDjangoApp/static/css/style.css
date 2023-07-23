@@ -1,0 +1,10 @@
+.wrap
+{
+    width: 70%;
+    height: 40%;
+    border: 3px black solid;
+}
+h1
+{
+    color: blue;
+}

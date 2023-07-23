@@ -1,0 +1,22 @@
+.wraper{
+   margin: 0 auto;
+   width: 80%;
+   background-color: beige;
+}
+
+
+.main
+{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-evenly;
+}
+
+.s
+{
+    border: 3px black solid;    
+    width: 200px;
+    height: 200px;
+    background-color: rgba(39, 39, 164, 0.479);
+    margin: 1%;
+}

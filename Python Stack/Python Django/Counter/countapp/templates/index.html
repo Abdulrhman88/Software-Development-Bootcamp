@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <style>
+        .warbber{
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+    margin-top: 300px;
+}
+
+.b1 {
+  
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+  
+    background-color: red;
+    color: white;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="warbber">
+        <h1>counter </h1>
+       <h2>{{request.session.x}} time</h2>
+        <a href="/del"><button class="b1">Destroy Session</button></a>
+</body>
+</html>

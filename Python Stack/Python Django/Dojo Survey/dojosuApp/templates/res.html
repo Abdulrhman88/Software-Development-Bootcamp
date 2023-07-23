@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .wrap
+    {
+        border: 3px black solid;
+        width: 50%;
+        height: 50%;
+        margin: 0% auto;
+        display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+    }
+</style>
+<body>
+    <form action="/" method="get">
+        {% csrf_token %}
+    <div class="wrap">
+    <h1>Submitted info </h1>
+    
+    <p>Name: {{ n1_name }}</p>
+    <p>location : {{ n2_location}}</p>
+    <p>favorite Langue: {{ n3_favorite}}</p>
+    <p>Comment : {{n4_comment}}</p>
+<div>
+    
+    <button type="submit" id="Goback" class="btn border border-2 border-dark w-25 ms-auto mx-4">Go back </button
+</div>
+</div>
+</form>
+
+</body>
+</html>
